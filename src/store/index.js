@@ -6,13 +6,26 @@ const counterReducer = (state = { counter: 0 }, action) => {
       counter: state.counter + 1,
     };
   }
+
+  if (action.type === "INCREASE") {
+    return {
+      counter: state.counter + action.amount,
+    };
+  }
+
+  if (action.type === "DECREASE") {
+    return {
+      counter: state.counter - action.amount,
+    };
+  }
+  
   if (action.type === "DECREMENT") {
     return {
       counter: state.counter - 1,
     };
   }
 
-  return state; // This will return the default state value if neither action type is matched.  
+  return state; // This will return the default state value if neither action type is matched.
 };
 
 const store = createStore(counterReducer);
@@ -26,4 +39,4 @@ const store = createStore(counterReducer);
 // store.dispatch({ type: "INCREMENT" });
 // store.dispatch({ type: "DECREMENT" });
 
-export default store 
+export default store;
