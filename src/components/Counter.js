@@ -5,11 +5,11 @@ import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
-  const show = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter);
+  const show = useSelector((state) => state.counter.showCounter);
 
   const incrementHandler = () => {
-    dispatch(counterActions.increment());
+    dispatch(counterActions.increment()); // .increment() is an ACTION METHOD that was created by using counterSlice.actions;
   };
 
   const increaseBy5 = () => {
